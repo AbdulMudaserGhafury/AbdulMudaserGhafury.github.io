@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>Abdul Mudaser Ghafury - Personal Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-grid {
+            background-image:
+                linear-gradient(to right, rgba(200, 200, 200, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(200, 200, 200, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        /* Style for active language button */
+        .lang-btn.active {
+            background-color: #6366f1; /* indigo-500 */
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full z-30 bg-gray-900 bg-opacity-80 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-5 sm:px-6">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Site branding -->
+                <div class="flex-shrink-0 mr-4">
+                    <a href="#hero" class="text-2xl font-bold text-white hover:text-indigo-400 transition duration-300">
+                        AG.
+                    </a>
+                </div>
+
+                <!-- Desktop navigation -->
+                <nav class="hidden md:flex md:grow">
+                     <!-- Language Switcher -->
+                    <div class="flex items-center mr-6">
+                        <button class="lang-btn text-sm font-medium py-1 px-3 rounded-md transition duration-150 ease-in-out text-gray-400 hover:text-white" data-lang="en">EN</button>
+                        <button class="lang-btn text-sm font-medium py-1 px-3 rounded-md transition duration-150 ease-in-out text-gray-400 hover:text-white" data-lang="tr">TR</button>
+                        <button class="lang-btn text-sm font-medium py-1 px-3 rounded-md transition duration-150 ease-in-out text-gray-400 hover:text-white" data-lang="fa">FA</button>
+                    </div>
+                    <ul class="flex grow justify-end flex-wrap items-center">
+                        <li><a href="#about" data-key="nav_about" class="font-medium text-gray-400 hover:text-indigo-400 px-5 py-3 flex items-center transition duration-150 ease-in-out">About</a></li>
+                        <li><a href="#my-projects" data-key="nav_my_projects" class="font-medium text-gray-400 hover:text-indigo-400 px-5 py-3 flex items-center transition duration-150 ease-in-out">My Projects</a></li>
+                        <li><a href="#experience" data-key="nav_experience" class="font-medium text-gray-400 hover:text-indigo-400 px-5 py-3 flex items-center transition duration-150 ease-in-out">Experience</a></li>
+                        <li><a href="#projects" data-key="nav_projects" class="font-medium text-gray-400 hover:text-indigo-400 px-5 py-3 flex items-center transition duration-150 ease-in-out">Honours & Awards</a></li>
+                        <li><a href="#blog" data-key="nav_blog" class="font-medium text-gray-400 hover:text-indigo-400 px-5 py-3 flex items-center transition duration-150 ease-in-out">Blog</a></li>
+                        <li><a href="#contact" data-key="nav_contact" class="btn text-white bg-indigo-600 hover:bg-indigo-700 ml-3 py-2 px-4 rounded-md">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="flex md:hidden">
+                    <button id="hamburger" class="hamburger text-gray-300 hover:text-white focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-95 z-40">
+        <div class="flex justify-end p-5">
+            <button id="close-menu" class="text-gray-300 hover:text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-center justify-center h-full -mt-16">
+            <ul class="text-center">
+                <li><a href="#about" data-key="nav_about_mobile" class="block text-2xl font-bold text-gray-300 hover:text-indigo-400 py-4">About</a></li>
+                <li><a href="#my-projects" data-key="nav_my_projects_mobile" class="block text-2xl font-bold text-gray-300 hover:text-indigo-400 py-4">My Projects</a></li>
+                <li><a href="#experience" data-key="nav_experience_mobile" class="block text-2xl font-bold text-gray-300 hover:text-indigo-400 py-4">Experience</a></li>
+                <li><a href="#projects" data-key="nav_projects_mobile" class="block text-2xl font-bold text-gray-300 hover:text-indigo-400 py-4">Honours & Awards</a></li>
+                <li><a href="#blog" data-key="nav_blog_mobile" class="block text-2xl font-bold text-gray-300 hover:text-indigo-400 py-4">Blog</a></li>
+                <li><a href="#contact" data-key="nav_contact_mobile" class="mt-6 inline-block text-white bg-indigo-600 hover:bg-indigo-700 py-3 px-8 rounded-lg text-lg">Contact</a></li>
+                 <!-- Language Switcher Mobile -->
+                 <li class="mt-8">
+                    <div class="flex items-center justify-center space-x-2">
+                        <button class="lang-btn text-lg font-medium py-2 px-4 rounded-md transition duration-150 ease-in-out text-gray-400 hover:text-white" data-lang="en">EN</button>
+                        <button class="lang-btn text-lg font-medium py-2 px-4 rounded-md transition duration-150 ease-in-out text-gray-400 hover:text-white" data-lang="tr">TR</button>
+                        <button class="lang-btn text-lg font-medium py-2 px-4 rounded-md transition duration-150 ease-in-out text-gray-400 hover:text-white" data-lang="fa">FA</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="flex-grow pt-16 md:pt-20">
+
+        <!-- Hero section -->
+        <section id="hero" class="relative bg-grid">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none"></div>
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="pt-32 pb-12 md:pt-40 md:pb-20">
+                    <!-- Section header -->
+                    <div class="text-center pb-12 md:pb-16">
+                        <h1 class="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4 text-white">
+                            <span data-key="hero_greeting">Hi, I'm</span> <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-400" data-key="hero_name">Abdul Mudaser Ghafury</span>
+                        </h1>
+                        <div class="max-w-3xl mx-auto">
+                            <p class="text-xl text-gray-400 mb-8" data-key="hero_tagline">
+                                An Aspiring Engineer, Innovating in Technology and Contributing to Society.
+                            </p>
+                            <div class="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
+                                <a class="btn text-white bg-indigo-600 hover:bg-indigo-700 w-full mb-4 sm:w-auto sm:mb-0 py-3 px-8 rounded-full" href="#contact" data-key="hero_button_hire">Hire Me</a>
+                                <a class="btn text-white bg-gray-800 hover:bg-gray-700 w-full sm:w-auto py-3 px-8 rounded-full" href="#projects" data-key="hero_button_work">See My Work</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 bg-gray-800/50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                     <h2 class="text-4xl font-extrabold text-white" data-key="about_title">About Me</h2>
+                     <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4"></div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="w-full md:w-1/3">
+                        <img class="rounded-full shadow-2xl mx-auto" src="profile.jpeg" alt="Abdul Mudaser Ghafury" width="400" height="400" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1F2937/FFFFFF?text=AG';">
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <p class="text-lg text-gray-400 mb-6" data-key="about_p1">
+                            Hello, my name is Abdul Mudaser Ghafury. I am a third-year Computer Engineering student at Bartın University, deeply passionate about the power of technology and the vision of the National Technology Initiative. I enrich my academic studies with national achievements, such as being a TEKNOFEST finalist, and through practical projects like my work with the Tunga UAV team. My goal is not just to write code, but to be an individual who serves the community through volunteering at the T3 Foundation and the local Youth Center. My ultimate aim is to use my knowledge and experience to contribute to my country's technological independence.
+                        </p>
+                        <div class="flex flex-wrap gap-4 mb-8">
+                            <a href="cv-en.pdf" class="btn text-white bg-indigo-600 hover:bg-indigo-700 py-3 px-6 rounded-md inline-flex items-center" data-key="about_cv_en">
+                                <i data-feather="download" class="w-4 h-4 mr-2"></i> Download CV (EN)
+                            </a>
+                            <a href="cv-tr.pdf" class="btn text-white bg-gray-700 hover:bg-gray-600 py-3 px-6 rounded-md inline-flex items-center" data-key="about_cv_tr">
+                                <i data-feather="download" class="w-4 h-4 mr-2"></i> CV İndir (TR)
+                            </a>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-4" data-key="about_skills_tech_title">Technical Skills</h3>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Python</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">C#</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">C++</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Java</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">AI & ML</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">NLP</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Computer Vision</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">.NET MAUI</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Git</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-4" data-key="about_skills_soft_title">Soft Skills</h3>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Leadership & Initiative</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Teamwork</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Project Management</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Problem-Solving</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Projects Section -->
+        <section id="my-projects" class="py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                     <h2 class="text-4xl font-extrabold text-white" data-key="my_projects_title">My Projects</h2>
+                     <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
+                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Calculator" alt="Calculator App" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2" data-key="my_project1_title">Calculator App</h3>
+                            <p class="text-gray-400 mb-4 flex-grow" data-key="my_project1_desc">A functional calculator application built with a focus on clean UI and user experience. It handles standard arithmetic operations efficiently.</p>
+                            <div class="mt-auto pt-4">
+                                <a href="https://github.com/AbdulMudaserGhafury/CalculatorApp" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold" data-key="view_project">
+                                    View Project <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Project Card 2 -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
+                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=MS+Sports" alt="MS Sports Website" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2" data-key="my_project2_title">MS Sports Website</h3>
+                            <p class="text-gray-400 mb-4 flex-grow" data-key="my_project2_desc">A responsive website for MS Sports, showcasing their products and services. The site is designed to be modern, fast, and easy to navigate for all users.</p>
+                            <div class="mt-auto pt-4">
+                                <a href="https://mssport.netlify.app/" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold" data-key="view_project">
+                                    View Project <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
+                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Portfolio" alt="Personal Portfolio Website" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2" data-key="my_project3_title">Personal Portfolio Website</h3>
+                            <p class="text-gray-400 mb-4 flex-grow" data-key="my_project3_desc">The website you are currently viewing. A fully responsive personal portfolio built with HTML, Tailwind CSS, and JavaScript.</p>
+                            <div class="mt-auto pt-4">
+                                <a href="#hero" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold" data-key="view_project">
+                                    View Project <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Volunteering Section -->
+        <section id="experience" class="py-20 bg-gray-800/50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                     <h2 class="text-4xl font-extrabold text-white" data-key="experience_title">Experience & Volunteering</h2>
+                     <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <!-- Experience 1 -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white mb-2" data-key="exp1_title">Founding Member | Bartın TEKNOFEST Club</h3>
+                        <p class="text-gray-400" data-key="exp1_desc">To share the experience I gained at TEKNOFEST, I took a leading role in founding the club at my university, where I support new project teams and promote the National Technology Initiative.</p>
+                    </div>
+                    <!-- Experience 2 -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white mb-2" data-key="exp2_title">Volunteer | T3 Foundation</h3>
+                        <p class="text-gray-400" data-key="exp2_desc">I am proud to be a volunteer at the T3 Foundation, shaping Turkey's technological future by actively participating in events and projects aligned with the foundation's mission.</p>
+                    </div>
+                    <!-- Experience 3 -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white mb-2" data-key="exp3_title">Volunteer | Bartın Youth and Sports Center</h3>
+                        <p class="text-gray-400" data-key="exp3_desc">Believing in social bonds, I volunteer here to support social, cultural, and sports activities organized for young people.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Honours and Awards Section -->
+        <section id="projects" class="py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                     <h2 class="text-4xl font-extrabold text-white" data-key="projects_title">Honours & Awards</h2>
+                     <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
+                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=TEKNOFEST" alt="TEKNOFEST Project" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2" data-key="project1_title">TEKNOFEST 2024 | Turkish Natural Language Processing Finalist</h3>
+                            <p class="text-indigo-300 font-semibold mb-3" data-key="project1_role">Role: Team Member / Software Developer</p>
+                            <p class="text-gray-400 mb-4 flex-grow" data-key="project1_desc">During TEKNOFEST's challenging competition, I was part of a team that developed an artificial intelligence model to understand and process Turkish texts. I undertook critical tasks such as data analysis, model training, and algorithm development using Python and NLP libraries. As a team, we successfully became finalists, standing out among thousands of other projects.</p>
+                        </div>
+                    </div>
+                     <!-- Project Card 2 -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
+                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Tunga+UAV" alt="Tunga UAV Project" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2" data-key="project2_title">Tunga UAV Team | Autonomous Systems Software</h3>
+                            <p class="text-indigo-300 font-semibold mb-3" data-key="project2_role">Role: Software Unit Member</p>
+                            <p class="text-gray-400 mb-4 flex-grow" data-key="project2_desc">As a member of my university's UAV team, Tunga UAV, I work on the software that enables our vehicle to perform autonomous missions. I take responsibility for areas such as mission computer programming, developing computer vision algorithms, and system integration. This work gives me hands-on skills in creating engineering solutions for real-world problems and collaborating within an interdisciplinary team.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="py-20 bg-gray-800/50">
+             <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                     <h2 class="text-4xl font-extrabold text-white" data-key="blog_title">From The Blog</h2>
+                     <p class="text-xl text-gray-400 mt-4" data-key="blog_subtitle">I write about technology, design, and my personal experiences.</p>
+                     <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Blog Post 1 -->
+                    <a href="#" class="block bg-gray-800 rounded-lg p-6 group hover:bg-gray-700/50 transition-colors duration-300">
+                        <div class="flex items-center mb-3">
+                            <span class="text-sm text-gray-500" data-key="blog1_date">October 17, 2025</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors duration-300" data-key="blog1_title">10 Tips for Writing Clean Code</h3>
+                        <p class="text-gray-400 mb-4" data-key="blog1_desc">Discover practical tips and best practices for improving your code quality and maintainability.</p>
+                        <span class="font-semibold text-indigo-400 group-hover:text-indigo-300 transition-colors duration-300 flex items-center" data-key="read_more">Read More <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i></span>
+                    </a>
+                    <!-- Blog Post 2 -->
+                    <a href="#" class="block bg-gray-800 rounded-lg p-6 group hover:bg-gray-700/50 transition-colors duration-300">
+                        <div class="flex items-center mb-3">
+                            <span class="text-sm text-gray-500" data-key="blog2_date">September 25, 2025</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors duration-300" data-key="blog2_title">Getting Started with Tailwind CSS</h3>
+                        <p class="text-gray-400 mb-4" data-key="blog2_desc">A beginner's guide to setting up and using Tailwind CSS in your next project.</p>
+                        <span class="font-semibold text-indigo-400 group-hover:text-indigo-300 transition-colors duration-300 flex items-center" data-key="read_more">Read More <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i></span>
+                    </a>
+                </div>
+             </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                     <h2 class="text-4xl font-extrabold text-white" data-key="contact_title">Get In Touch</h2>
+                     <p class="text-xl text-gray-400 mt-4" data-key="contact_subtitle">Feel free to reach out if you would like to discuss technology projects, volunteer activities, or potential collaboration opportunities.</p>
+                     <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4"></div>
+                </div>
+
+                <form id="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_FORM_ID" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="sr-only" data-key="form_name">Name</label>
+                        <input type="text" name="name" id="name" data-key-placeholder="form_name_placeholder" placeholder="Your Name" class="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300" required>
+                    </div>
+                    <div>
+                        <label for="email" class="sr-only" data-key="form_email">Email</label>
+                        <input type="email" name="email" id="email" data-key-placeholder="form_email_placeholder" placeholder="Your Email" class="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300" required>
+                    </div>
+                    <div>
+                        <label for="message" class="sr-only" data-key="form_message">Message</label>
+                        <textarea name="message" id="message" rows="5" data-key-placeholder="form_message_placeholder" placeholder="Your Message" class="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300" required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn text-white bg-indigo-600 hover:bg-indigo-700 w-full sm:w-auto py-3 px-8 rounded-md text-lg font-semibold" data-key="form_button">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <p class="text-sm text-gray-400" data-key="footer_copyright">&copy; 2025 Abdul Mudaser Ghafury. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://github.com/AbdulMudaserGhafury" class="text-gray-400 hover:text-indigo-400 transition-colors"><i data-feather="github" class="w-6 h-6"></i></a>
+                    <a href="https://x.com/Mudaser_Azizyar" class="text-gray-400 hover:text-indigo-400 transition-colors"><i data-feather="twitter" class="w-6 h-6"></i></a>
+                    <a href="https://www.linkedin.com/in/abdul-mudaser-ghafury-4571a1330/" class="text-gray-400 hover:text-indigo-400 transition-colors"><i data-feather="linkedin" class="w-6 h-6"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Translations
+        const translations = {
+            en: {
+                nav_about: 'About', nav_projects: 'Honours & Awards', nav_experience: 'Experience', nav_my_projects: 'My Projects', nav_blog: 'Blog', nav_contact: 'Contact',
+                nav_about_mobile: 'About', nav_projects_mobile: 'Honours & Awards', nav_experience_mobile: 'Experience', nav_my_projects_mobile: 'My Projects', nav_blog_mobile: 'Blog', nav_contact_mobile: 'Contact',
+                hero_greeting: "Hi, I'm", hero_name: 'Abdul Mudaser Ghafury',
+                hero_tagline: 'An Aspiring Engineer, Innovating in Technology and Contributing to Society.',
+                hero_button_hire: 'Hire Me', hero_button_work: 'See My Work',
+                about_title: 'About Me',
+                about_p1: "Hello, my name is Abdul Mudaser Ghafury. I am a third-year Computer Engineering student at Bartın University, deeply passionate about the power of technology and the vision of the National Technology Initiative. I enrich my academic studies with national achievements, such as being a TEKNOFEST finalist, and through practical projects like my work with the Tunga UAV team. My goal is not just to write code, but to be an individual who serves the community through volunteering at the T3 Foundation and the local Youth Center. My ultimate aim is to use my knowledge and experience to contribute to my country's technological independence.",
+                about_cv_en: 'Download CV (EN)', about_cv_tr: 'CV İndir (TR)',
+                about_skills_tech_title: 'Technical Skills', about_skills_soft_title: 'Soft Skills',
+                projects_title: 'Honours & Awards',
+                project1_title: 'TEKNOFEST 2024 | Turkish Natural Language Processing Finalist',
+                project1_role: 'Role: Team Member / Software Developer',
+                project1_desc: "During TEKNOFEST's challenging competition, I was part of a team that developed an artificial intelligence model to understand and process Turkish texts. I undertook critical tasks such as data analysis, model training, and algorithm development using Python and NLP libraries. As a team, we successfully became finalists, standing out among thousands of other projects.",
+                project2_title: 'Tunga UAV Team | Autonomous Systems Software',
+                project2_role: 'Role: Software Unit Member',
+                project2_desc: "As a member of my university's UAV team, Tunga UAV, I work on the software that enables our vehicle to perform autonomous missions. I take responsibility for areas such as mission computer programming, developing computer vision algorithms, and system integration. This work gives me hands-on skills in creating engineering solutions for real-world problems and collaborating within an interdisciplinary team.",
+                experience_title: 'Experience & Volunteering',
+                exp1_title: 'Founding Member | Bartın TEKNOFEST Club',
+                exp1_desc: 'To share the experience I gained at TEKNOFEST, I took a leading role in founding the club at my university, where I support new project teams and promote the National Technology Initiative.',
+                exp2_title: 'Volunteer | T3 Foundation',
+                exp2_desc: "I am proud to be a volunteer at the T3 Foundation, shaping Turkey's technological future by actively participating in events and projects aligned with the foundation's mission.",
+                exp3_title: 'Volunteer | Bartın Youth and Sports Center',
+                exp3_desc: 'Believing in social bonds, I volunteer here to support social, cultural, and sports activities organized for young people.',
+                my_projects_title: 'My Projects',
+                my_project1_title: 'Calculator App',
+                my_project1_desc: 'A functional calculator application built with a focus on clean UI and user experience. It handles standard arithmetic operations efficiently.',
+                my_project2_title: 'MS Sports Website',
+                my_project2_desc: 'A responsive website for MS Sports, showcasing their products and services. The site is designed to be modern, fast, and easy to navigate for all users.',
+                my_project3_title: 'Personal Portfolio Website',
+                my_project3_desc: 'The website you are currently viewing. A fully responsive personal portfolio built with HTML, Tailwind CSS, and JavaScript.',
+                view_project: 'View Project',
+                blog_title: 'From The Blog', blog_subtitle: 'I write about technology, design, and my personal experiences.',
+                blog1_date: 'October 17, 2025', blog1_title: '10 Tips for Writing Clean Code', blog1_desc: 'Discover practical tips and best practices for improving your code quality and maintainability.',
+                blog2_date: 'September 25, 2025', blog2_title: 'Getting Started with Tailwind CSS', blog2_desc: "A beginner's guide to setting up and using Tailwind CSS in your next project.",
+                read_more: 'Read More',
+                contact_title: 'Get In Touch', contact_subtitle: 'Feel free to reach out if you would like to discuss technology projects, volunteer activities, or potential collaboration opportunities.',
+                form_name_placeholder: 'Your Name', form_email_placeholder: 'Your Email', form_message_placeholder: 'Your Message',
+                form_button: 'Send Message',
+                footer_copyright: '&copy; 2025 Abdul Mudaser Ghafury. All rights reserved.'
+            },
+            tr: {
+                nav_about: 'Hakkımda', nav_projects: 'Başarılar ve Ödüller', nav_experience: 'Deneyim', nav_my_projects: 'Projelerim', nav_blog: 'Blog', nav_contact: 'İletişim',
+                nav_about_mobile: 'Hakkımda', nav_projects_mobile: 'Başarılar ve Ödüller', nav_experience_mobile: 'Deneyim', nav_my_projects_mobile: 'Projelerim', nav_blog_mobile: 'Blog', nav_contact_mobile: 'İletişim',
+                hero_greeting: 'Merhaba, ben', hero_name: 'Abdul Mudaser Ghafury',
+                hero_tagline: 'Teknolojide Yenilik Yapan ve Topluma Katkıda Bulunan Gelecek Vadeden Bir Mühendis.',
+                hero_button_hire: 'Beni İşe Al', hero_button_work: 'Çalışmalarımı Gör',
+                about_title: 'Hakkımda',
+                about_p1: "Merhaba, benim adım Abdul Mudaser Ghafury. Bartın Üniversitesi'nde üçüncü sınıf Bilgisayar Mühendisliği öğrencisiyim ve teknolojinin gücüne ve Milli Teknoloji Hamlesi vizyonuna derinden bağlıyım. Akademik çalışmalarımı, TEKNOFEST finalisti olmak gibi ulusal başarılarla ve Tunga İHA ekibindeki çalışmalarım gibi pratik projelerle zenginleştiriyorum. Amacım sadece kod yazmak değil, T3 Vakfı ve yerel Gençlik Merkezi'ndeki gönüllülük faaliyetlerimle topluma hizmet eden bir birey olmaktır. Nihai hedefim, bilgi ve deneyimimi ülkemin teknolojik bağımsızlığına katkıda bulunmak için kullanmaktır.",
+                about_cv_en: 'Download CV (EN)', about_cv_tr: 'CV İndir (TR)',
+                about_skills_tech_title: 'Teknik Yetenekler', about_skills_soft_title: 'Sosyal Beceriler',
+                projects_title: 'Başarılar ve Ödüller',
+                project1_title: 'TEKNOFEST 2024 | Türkçe Doğal Dil İşleme Finalisti',
+                project1_role: 'Rol: Takım Üyesi / Yazılım Geliştirici',
+                project1_desc: "TEKNOFEST'in zorlu yarışması sırasında, Türkçe metinleri anlamak ve işlemek için bir yapay zeka modeli geliştiren bir ekibin parçasıydım. Python ve NLP kütüphanelerini kullanarak veri analizi, model eğitimi ve algoritma geliştirme gibi kritik görevler üstlendim. Ekip olarak, binlerce proje arasından sıyrılarak finalist olmayı başardık.",
+                project2_title: 'Tunga İHA Takımı | Otonom Sistemler Yazılımı',
+                project2_role: 'Rol: Yazılım Birimi Üyesi',
+                project2_desc: "Üniversitemin İnsansız Hava Aracı (İHA) takımı Tunga İHA'nın bir üyesi olarak, aracımızın otonom görevleri yerine getirmesini sağlayan yazılımlar üzerinde çalışıyorum. Görev bilgisayarı programlama, bilgisayarlı görü algoritmaları geliştirme ve sistem entegrasyonu gibi alanlarda sorumluluk alıyorum. Bu çalışma bana gerçek dünya problemlerine mühendislik çözümleri üretme ve disiplinlerarası bir ekip içinde işbirliği yapma konusunda pratik beceriler kazandırıyor.",
+                experience_title: 'Deneyim ve Gönüllülük',
+                exp1_title: 'Kurucu Üye | Bartın TEKNOFEST Kulübü',
+                exp1_desc: "TEKNOFEST'te edindiğim deneyimi paylaşmak için üniversitemde kulübün kurulmasında öncü bir rol üstlendim. Yeni proje ekiplerini destekliyor ve Milli Teknoloji Hamlesi'ni tanıtıyorum.",
+                exp2_title: 'Gönüllü | T3 Vakfı',
+                exp2_desc: "Türkiye'nin teknolojik geleceğini şekillendiren T3 Vakfı'nda gönüllü olmaktan gurur duyuyorum. Vakfın misyonuna uygun etkinlik ve projelerde aktif olarak yer alıyorum.",
+                exp3_title: 'Gönüllü | Bartın Gençlik ve Spor Merkezi',
+                exp3_desc: 'Sosyal bağlara inandığım için, gençler için düzenlenen sosyal, kültürel ve sportif faaliyetleri desteklemek amacıyla burada gönüllülük yapıyorum.',
+                my_projects_title: 'Projelerim',
+                my_project1_title: 'Hesap Makinesi Uygulaması',
+                my_project1_desc: 'Temiz bir kullanıcı arayüzü ve kullanıcı deneyimine odaklanılarak oluşturulmuş işlevsel bir hesap makinesi uygulaması. Standart aritmetik işlemleri verimli bir şekilde gerçekleştirir.',
+                my_project2_title: 'MS Sports Web Sitesi',
+                my_project2_desc: 'MS Sports için ürünlerini ve hizmetlerini sergileyen duyarlı bir web sitesi. Site, tüm kullanıcılar için modern, hızlı ve gezinmesi kolay olacak şekilde tasarlanmıştır.',
+                my_project3_title: 'Kişisel Portföy Web Sitesi',
+                my_project3_desc: 'Şu anda görüntülediğiniz web sitesi. HTML, Tailwind CSS ve JavaScript ile oluşturulmuş tamamen duyarlı bir kişisel portföy.',
+                view_project: 'Projeyi Görüntüle',
+                blog_title: 'Blogdan Yazılar', blog_subtitle: 'Teknoloji, tasarım ve kişisel deneyimlerim hakkında yazıyorum.',
+                blog1_date: '17 Ekim 2025', blog1_title: 'Temiz Kod Yazmak İçin 10 İpucu', blog1_desc: 'Kod kalitenizi ve sürdürülebilirliğinizi artırmak için pratik ipuçlarını ve en iyi uygulamaları keşfedin.',
+                blog2_date: '25 Eylül 2025', blog2_title: "Tailwind CSS'e Başlarken", blog2_desc: "Bir sonraki projenizde Tailwind CSS'i kurma ve kullanma konusunda başlangıç rehberi.",
+                read_more: 'Devamını Oku',
+                contact_title: 'İletişime Geçin', contact_subtitle: 'Teknoloji projeleri, gönüllülük faaliyetleri veya potansiyel işbirliği fırsatlarını görüşmek isterseniz çekinmeden ulaşın.',
+                form_name_placeholder: 'Adınız', form_email_placeholder: 'E-posta Adresiniz', form_message_placeholder: 'Mesajınız',
+                form_button: 'Mesaj Gönder',
+                footer_copyright: '&copy; 2025 Abdul Mudaser Ghafury. Tüm hakları saklıdır.'
+            },
+            fa: {
+                nav_about: 'درباره من', nav_projects: 'افتخارات و جوایز', nav_experience: 'تجربه', nav_my_projects: 'پروژه های من', nav_blog: 'وبلاگ', nav_contact: 'تماس',
+                nav_about_mobile: 'درباره من', nav_projects_mobile: 'افتخارات و جوایز', nav_experience_mobile: 'تجربه', nav_my_projects_mobile: 'پروژه های من', nav_blog_mobile: 'وبلاگ', nav_contact_mobile: 'تماس',
+                hero_greeting: 'سلام، من', hero_name: 'عبدالمدثر غفوری',
+                hero_tagline: 'یک مهندس مشتاق، نوآور در فناوری و مشارکت کننده در جامعه.',
+                hero_button_hire: 'استخدام من', hero_button_work: 'کارهای من را ببینید',
+                about_title: 'درباره من',
+                about_p1: "سلام، نام من عبدالمدثر غفوری است. من دانشجوی سال سوم مهندسی کامپیوتر در دانشگاه بارتین هستم و عمیقاً به قدرت فناوری و چشم‌انداز ابتکار ملی فناوری علاقه‌مندم. من مطالعات آکادمیک خود را با دستاوردهای ملی، مانند فینالیست شدن در TEKNOFEST، و از طریق پروژه‌های عملی مانند کارم با تیم پهپاد Tunga غنی می‌کنم. هدف من فقط نوشتن کد نیست، بلکه فردی بودن است که از طریق داوطلبی در بنیاد T3 و مرکز جوانان محلی به جامعه خدمت می‌کند. هدف نهایی من استفاده از دانش و تجربه‌ام برای کمک به استقلال فناوری کشورم است.",
+                about_cv_en: 'دانلود رزومه (EN)', about_cv_tr: 'دانلود رزومه (TR)',
+                about_skills_tech_title: 'مهارت های فنی', about_skills_soft_title: 'مهارت های نرم',
+                projects_title: 'افتخارات و جوایز',
+                project1_title: 'TEKNOFEST 2024 | فینالیست پردازش زبان طبیعی ترکی',
+                project1_role: 'نقش: عضو تیم / توسعه‌دهنده نرم‌افزار',
+                project1_desc: 'در طول رقابت چالش برانگیز TEKNOFEST، من عضوی از تیمی بودم که یک مدل هوش مصنوعی برای درک و پردازش متون ترکی توسعه داد. من وظایf مهمی مانند تجزیه و تحلیل داده ها، آموزش مدل و توسعه الگوریتم با استفاده از پایتون و کتابخانه های NLP را بر عهده گرفتم. به عنوان یک تیم، ما با موفقیت به فینال رسیدیم و در میان هزاران پروژه دیگر متمایز شدیم.',
+                project2_title: 'تیم پهپاد Tunga | نرم افزار سیستم های خودمختار',
+                project2_role: 'نقش: عضو واحد نرم افزار',
+                project2_desc: 'به عنوان عضوی از تیم پهپاد دانشگاه، Tunga UAV، من روی نرم افزاری کار می کنم که وسیله نقلیه ما را قادر می سازد تا ماموریت های خودمختار را انجام دهد. من مسئولیت حوزه هایی مانند برنامه نویسی کامپیوتر ماموریت، توسعه الگوریتم های بینایی کامپیوتر و یکپارچه سازی سیستم را بر عهده دارم. این کار به من مهارت های عملی در ایجاد راه حل های مهندسی برای مشکلات دنیای واقعی و همکاری در یک تیم بین رشته ای می دهد.',
+                experience_title: 'تجربه و کار داوطلبانه',
+                exp1_title: 'عضو موسس | باشگاه TEKNOFEST بارتین',
+                exp1_desc: 'برای به اشتراک گذاشتن تجربه ای که در TEKNOFEST به دست آوردم، نقش اصلی را در تأسیس این باشگاه در دانشگاهم ایفا کردم، جایی که از تیم های پروژه جدید حمایت می کنم و ابتکار فناوری ملی را ترویج می دهم.',
+                exp2_title: 'داوطلب | بنیاد T3',
+                exp2_desc: 'من افتخar می کنم که داوطلب بنیاد T3 هستم که با شرکت فعال در رویدادها و پروژه های همسو با ماموریت بنیاد، آینده فناوری ترکیه را شکل می دهد.',
+                exp3_title: 'داوطلب | مرکز جوانان و ورزش بارتین',
+                exp3_desc: 'با اعتقاد به پیوندهای اجتماعی، من در اینجا داوطلب می شوم تا از فعالیت های اجتماعی، فرهنگی و ورزشی سازماندهی شده برای جوانان حمایت کنم.',
+                my_projects_title: 'پروژه های من',
+                my_project1_title: 'اپلیکیشن ماشین حساب',
+                my_project1_desc: 'یک اپلیکیشن ماشین حساب کاربردی که با تمرکز بر رابط کاربری تمیز و تجربه کاربری ساخته شده است. عملیات حسابی استاندارد را به طور موثر انجام می دهد.',
+                my_project2_title: 'وب سایت MS Sports',
+                my_project2_desc: 'یک وب سایت واکنش گرا برای MS Sports که محصولات و خدمات آنها را به نمایش می گذارد. این سایت به گونه ای طراحی شده است که مدرن، سریع و برای همه کاربران آسان باشد.',
+                my_project3_title: 'وب سایت نمونه کار شخصی',
+                my_project3_desc: 'وب سایتی که در حال حاضر مشاهده می کنید. یک نمونه کار شخصی کاملاً واکنش گرا که با HTML، Tailwind CSS و جاوا اسکریپت ساخته شده است.',
+                view_project: 'مشاهده پروژه',
+                blog_title: 'از وبلاگ', blog_subtitle: 'من در مورد فناوری، طراحی و تجربیات شخصی خود می نویسم.',
+                blog1_date: '۱۷ اکتبر ۲۰۲۵', blog1_title: '۱۰ نکته برای نوشتن کد تمیز', blog1_desc: 'نکات عملی و بهترین شیوه ها را برای بهبود کیفیت و قابلیت نگهداری کد خود کشف کنید.',
+                blog2_date: '۲۵ سپتامبر ۲۰۲۵', blog2_title: 'شروع کار با Tailwind CSS', blog2_desc: 'راهنمای مبتدیان برای راه اندازی و استفاده از Tailwind CSS در پروژه بعدی شما.',
+                read_more: 'بیشتر بخوانید',
+                contact_title: 'در تماس باشید', contact_subtitle: 'اگر مایل به بحث در مورد پروژه های فناوری، فعالیت های داوطلبانه یا فرصت های همکاری بالقوه هستید، با خیال راحت تماس بگیرید.',
+                form_name_placeholder: 'نام شما', form_email_placeholder: 'ایمیل شما', form_message_placeholder: 'پیام شما',
+                form_button: 'ارسال پیام',
+                footer_copyright: '&copy; ۲۰۲۵ عبدالمدثر غفوری. تمام حقوق محفوظ است.'
+            }
+        };
+
+        const languageButtons = document.querySelectorAll('.lang-btn');
+        let currentLang = 'en';
+
+        const setLanguage = (lang) => {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            if(lang === 'fa') {
+                document.body.dir = 'rtl';
+            } else {
+                document.body.dir = 'ltr';
+            }
+
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    elem.innerHTML = translations[lang][key];
+                }
+            });
+            
+            document.querySelectorAll('[data-key-placeholder]').forEach(elem => {
+                const key = elem.getAttribute('data-key-placeholder');
+                 if (translations[lang] && translations[lang][key]) {
+                    elem.placeholder = translations[lang][key];
+                }
+            });
+            
+            // Update active button style
+            languageButtons.forEach(btn => {
+                if(btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Re-initialize feather icons after text changes
+             setTimeout(() => feather.replace(), 0);
+        };
+        
+        languageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const lang = button.getAttribute('data-lang');
+                setLanguage(lang);
+            });
+        });
+
+        // Set initial language
+        setLanguage('en');
+
+        // Feather Icons
+        feather.replace();
+
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        const menuLinks = mobileMenu.querySelectorAll('a');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        const closeMobileMenu = () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        closeMenu.addEventListener('click', closeMobileMenu);
+        menuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    closeMobileMenu();
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#hero') {
+                   window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>
+
