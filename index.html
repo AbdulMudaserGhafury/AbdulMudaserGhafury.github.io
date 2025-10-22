@@ -2,11 +2,11 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdul Mudaser Ghafury - Personal Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Moved feather-icons script to the bottom of the body -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -21,6 +21,17 @@
         .lang-btn.active {
             background-color: #6366f1; /* indigo-500 */
             color: white;
+        }
+        /* Modal styles */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+            transition: all 0.25s ease;
+            transform: translateY(-20px);
+        }
+        .modal.opacity-100 .modal-content {
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -188,7 +199,7 @@
                             <h3 class="text-xl font-bold text-white mb-2" data-key="my_project1_title">Calculator App</h3>
                             <p class="text-gray-400 mb-4 flex-grow" data-key="my_project1_desc">A functional calculator application built with a focus on clean UI and user experience. It handles standard arithmetic operations efficiently.</p>
                             <div class="mt-auto pt-4">
-                                <a href="https://github.com/AbdulMudaserGhafury/CalculatorApp" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold" data-key="view_project">
+                                <a href="https://github.com/AbdulMudaserGhafury/CalculatorApp" target="_blank" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold" data-key="view_project">
                                     View Project <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
                                 </a>
                             </div>
@@ -201,7 +212,7 @@
                             <h3 class="text-xl font-bold text-white mb-2" data-key="my_project2_title">MS Sports Website</h3>
                             <p class="text-gray-400 mb-4 flex-grow" data-key="my_project2_desc">A responsive website for MS Sports, showcasing their products and services. The site is designed to be modern, fast, and easy to navigate for all users.</p>
                             <div class="mt-auto pt-4">
-                                <a href="https://mssport.netlify.app/" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold" data-key="view_project">
+                                <a href="https://mssport.netlify.app/" target="_blank" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold" data-key="view_project">
                                     View Project <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
                                 </a>
                             </div>
@@ -214,7 +225,7 @@
                             <h3 class="text-xl font-bold text-white mb-2" data-key="my_project3_title">Personal Portfolio Website</h3>
                             <p class="text-gray-400 mb-4 flex-grow" data-key="my_project3_desc">The website you are currently viewing. A fully responsive personal portfolio built with HTML, Tailwind CSS, and JavaScript.</p>
                             <div class="mt-auto pt-4">
-                                <a href="#hero" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold" data-key="view_project">
+                                <a href="https://abdulmudaserghafury.github.io/" target="_blank" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-semibold" data-key="view_project">
                                     View Project <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
                                 </a>
                             </div>
@@ -291,24 +302,24 @@
                      <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Blog Post 1 -->
-                    <a href="#" class="block bg-gray-800 rounded-lg p-6 group hover:bg-gray-700/50 transition-colors duration-300">
+                    <!-- Blog Post 1 - Changed <a> to <button> -->
+                    <button id="open-blog-1" class="block bg-gray-800 rounded-lg p-6 group hover:bg-gray-700/50 transition-colors duration-300 text-left">
                         <div class="flex items-center mb-3">
                             <span class="text-sm text-gray-500" data-key="blog1_date">October 17, 2025</span>
                         </div>
                         <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors duration-300" data-key="blog1_title">10 Tips for Writing Clean Code</h3>
                         <p class="text-gray-400 mb-4" data-key="blog1_desc">Discover practical tips and best practices for improving your code quality and maintainability.</p>
                         <span class="font-semibold text-indigo-400 group-hover:text-indigo-300 transition-colors duration-300 flex items-center" data-key="read_more">Read More <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i></span>
-                    </a>
-                    <!-- Blog Post 2 -->
-                    <a href="#" class="block bg-gray-800 rounded-lg p-6 group hover:bg-gray-700/50 transition-colors duration-300">
+                    </button>
+                    <!-- Blog Post 2 - Changed <a> to <button> -->
+                    <button id="open-blog-2" class="block bg-gray-800 rounded-lg p-6 group hover:bg-gray-700/50 transition-colors duration-300 text-left">
                         <div class="flex items-center mb-3">
                             <span class="text-sm text-gray-500" data-key="blog2_date">September 25, 2025</span>
                         </div>
                         <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors duration-300" data-key="blog2_title">Getting Started with Tailwind CSS</h3>
                         <p class="text-gray-400 mb-4" data-key="blog2_desc">A beginner's guide to setting up and using Tailwind CSS in your next project.</p>
                         <span class="font-semibold text-indigo-400 group-hover:text-indigo-300 transition-colors duration-300 flex items-center" data-key="read_more">Read More <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i></span>
-                    </a>
+                    </button>
                 </div>
              </div>
         </section>
@@ -351,17 +362,93 @@
                     <p class="text-sm text-gray-400" data-key="footer_copyright">&copy; 2025 Abdul Mudaser Ghafury. All rights reserved.</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="https://github.com/AbdulMudaserGhafury" class="text-gray-400 hover:text-indigo-400 transition-colors"><i data-feather="github" class="w-6 h-6"></i></a>
-                    <a href="https://x.com/Mudaser_Azizyar" class="text-gray-400 hover:text-indigo-400 transition-colors">
+                    <a href="https://github.com/AbdulMudaserGhafury" target="_blank" class="text-gray-400 hover:text-indigo-400 transition-colors"><i data-feather="github" class="w-6 h-6"></i></a>
+                    <a href="https://x.com/Mudaser_Azizyar" target="_blank" class="text-gray-400 hover:text-indigo-400 transition-colors">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
                         </svg>
                         </a>
-                    <a href="https://www.linkedin.com/in/abdul-mudaser-ghafury-4571a1330/" class="text-gray-400 hover:text-indigo-400 transition-colors"><i data-feather="linkedin" class="w-6 h-6"></i></a>
+                    <a href="https://www.linkedin.com/in/abdul-mudaser-ghafury-4571a1330/" target="_blank" class="text-gray-400 hover:text-indigo-400 transition-colors"><i data-feather="linkedin" class="w-6 h-6"></i></a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Blog Modals HTML -->
+    <!-- Blog Modal 1: Clean Code -->
+    <div id="blog-modal-1" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 opacity-0 pointer-events-none">
+        <div class="modal-content bg-gray-800 w-full max-w-3xl max-h-[90vh] rounded-lg shadow-xl overflow-hidden flex flex-col">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-5 border-b border-gray-700">
+                <h3 class="text-2xl font-bold text-white" data-key="blog1_title_modal">10 Tips for Writing Clean Code</h3>
+                <button id="close-blog-1" class="text-gray-400 hover:text-white">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto space-y-4 text-gray-300">
+                <p data-key="blog1_modal_intro">Writing clean code is essential...</p>
+                <ol class="list-decimal list-inside space-y-3">
+                    <li><strong class="text-white" data-key="blog1_tip1_title">Use Meaningful Names:</strong> <span data-key="blog1_tip1_desc">Variable, function, and class names...</span></li>
+                    <li><strong class="text-white" data-key="blog1_tip2_title">Functions Should Do One Thing (SRP):</strong> <span data-key="blog1_tip2_desc">Keep your functions small...</span></li>
+                    <li><strong class="text-white" data-key="blog1_tip3_title">Write Comments Wisely:</strong> <span data-key="blog1_tip3_desc">Good code should be largely self-explanatory...</span></li>
+                    <li><strong class="text-white" data-key="blog1_tip4_title">Keep it DRY (Don't Repeat Yourself):</strong> <span data-key="blog1_tip4_desc">If you find yourself writing the same code...</span></li>
+                    <li><strong class="text-white" data-key="blog1_tip5_title">Formatting and Indentation Matter:</strong> <span data-key="blog1_tip5_desc">Consistent formatting makes code easy...</span></li>
+                    <li><strong class="text-white" data-key="blog1_tip6_title">Limit Line Length:</strong> <span data-key="blog1_tip6_desc">Avoid long, horizontal lines...</span></li>
+                    <li><strong class="text-white" data-key="blog1_tip7_title">Remove Dead Code:</strong> <span data-key="blog1_tip7_desc">Delete old, commented-out code...</span></li>
+                    <li><strong class="text-white" data-key="blog1_tip8_title">Use a Consistent Naming Convention:</strong> <span data-key="blog1_tip8_desc">Whether you choose camelCase or snake_case...</span></li>
+                    <li><strong class="text-white" data-key="blog1_tip9_title">Test Your Code:</strong> <span data-key="blog1_tip9_desc">Writing unit tests forces you...</span></li>
+                    <li><strong class="text-white" data-key="blog1_tip10_title">Refactor Regularly:</strong> <span data-key="blog1_tip10_desc">Your code is never "finished."...</span></li>
+                </ol>
+            </div>
+            <!-- Modal Footer -->
+            <div class="p-5 border-t border-gray-700 bg-gray-800 text-right">
+                <button id="close-blog-1-footer" class="btn text-white bg-indigo-600 hover:bg-indigo-700 py-2 px-6 rounded-md" data-key="blog_modal_close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Modal 2: Tailwind CSS -->
+    <div id="blog-modal-2" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 opacity-0 pointer-events-none">
+        <div class="modal-content bg-gray-800 w-full max-w-3xl max-h-[90vh] rounded-lg shadow-xl overflow-hidden flex flex-col">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-5 border-b border-gray-700">
+                <h3 class="text-2xl font-bold text-white" data-key="blog2_title_modal">Getting Started with Tailwind CSS</h3>
+                <button id="close-blog-2" class="text-gray-400 hover:text-white">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto space-y-4 text-gray-300">
+                <p data-key="blog2_modal_intro">Tailwind CSS is a "utility-first" CSS framework...</p>
+                <h4 class="text-xl font-bold text-white" data-key="blog2_step1_title">1. What is Utility-First?</h4>
+                <p data-key="blog2_step1_desc">Instead of writing CSS like this:</p>
+                <pre class="bg-gray-900 p-3 rounded-md text-sm text-yellow-300"><code>.my-button { ... }</code></pre>
+                <p data-key="blog2_step1_desc2">You write HTML with utility classes like this:</p>
+                <pre class="bg-gray-900 p-3 rounded-md text-sm text-yellow-300"><code>&lt;button class="bg-blue-500..."&gt; ... &lt;/button&gt;</code></pre>
+                <p data-key="blog2_step1_desc3">Here, `bg-blue-500` sets the background...</p>
+                <h4 class="text-xl font-bold text-white" data-key="blog2_step2_title">2. Why Use Tailwind?</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li data-key="blog2_step2_li1"><strong class="text-white">Faster Development:</strong> ...</li>
+                    <li data-key="blog2_step2_li2"><strong class="text-white">No Naming Conventions:</strong> ...</li>
+                    <li data-key="blog2_step2_li3"><strong class="text-white">Responsive Design is Easy:</strong> ...</li>
+                    <li data-key="blog2_step2_li4"><strong class="text-white">Highly Customizable:</strong> ...</li>
+                </ul>
+                <h4 class="text-xl font-bold text-white" data-key="blog2_step3_title">3. How to Set It Up (The Easy Way)</h4>
+                <p data-key="blog2_step3_desc">For quick prototyping...</p>
+                <pre class="bg-gray-900 p-3 rounded-md text-sm text-yellow-300"><code>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</code></pre>
+                <p data-key="blog2_step3_desc2">For a real project...</p>
+            </div>
+            <!-- Modal Footer -->
+            <div class="p-5 border-t border-gray-700 bg-gray-800 text-right">
+                <button id="close-blog-2-footer" class="btn text-white bg-indigo-600 hover:bg-indigo-700 py-2 px-6 rounded-md" data-key="blog_modal_close">Close</button>
+            </div>
+        </div>
+    </div>
+    <!-- END Blog Modals HTML -->
+
+    <!-- Moved feather-icons script here, before the main script block -->
+    <script src="https://unpkg.com/feather-icons"></script> 
 
     <script>
         // Language Translations
@@ -369,11 +456,11 @@
             en: {
                 nav_about: 'About', nav_projects: 'Honours & Awards', nav_experience: 'Experience', nav_my_projects: 'My Projects', nav_blog: 'Blog', nav_contact: 'Contact',
                 nav_about_mobile: 'About', nav_projects_mobile: 'Honours & Awards', nav_experience_mobile: 'Experience', nav_my_projects_mobile: 'My Projects', nav_blog_mobile: 'Blog', nav_contact_mobile: 'Contact',
-                hero_greeting: "Hello! I'm", hero_name: 'Abdul Mudaser Ghafury',
+                hero_greeting: "Hi! I'm", hero_name: 'Abdul Mudaser Ghafury',
                 hero_tagline: 'An Aspiring Engineer, Innovating in Technology and Contributing to Society.',
                 hero_button_hire: 'Hire Me', hero_button_work: 'See My Work',
                 about_title: 'About Me',
-                about_p1: "Hello, my name is Abdul Mudaser Ghafury. I am a third-year Computer Engineering student at Bartın University, deeply passionate about the power of technology and the vision of the National Technology Initiative. I enrich my academic studies with national achievements, such as being a TEKNOFEST finalist, and through practical projects like my work with the Tunga UAV team. My goal is not just to write code, but to be an individual who serves the community through volunteering at the T3 Foundation and the local Youth Center. My ultimate aim is to use my knowledge and experience to contribute to my country's technological independence.",
+                about_p1: "Hi, my name is Abdul Mudaser Ghafury. I am a third-year Computer Engineering student at Bartın University, deeply passionate about the power of technology and the vision of the National Technology Initiative. I enrich my academic studies with national achievements, such as being a TEKNOFEST finalist, and through practical projects like my work with the Tunga UAV team. My goal is not just to write code, but to be an individual who serves the community through volunteering at the T3 Foundation and the local Youth Center. My ultimate aim is to use my knowledge and experience to contribute to my country's technological independence.",
                 about_cv_en: 'Download CV (EN)', about_cv_tr: 'CV İndir (TR)',
                 about_skills_tech_title: 'Technical Skills', about_skills_soft_title: 'Soft Skills',
                 projects_title: 'Honours & Awards',
@@ -398,14 +485,58 @@
                 my_project3_title: 'Personal Portfolio Website',
                 my_project3_desc: 'The website you are currently viewing. A fully responsive personal portfolio built with HTML, Tailwind CSS, and JavaScript.',
                 view_project: 'View Project',
-                blog_title: 'From The Blog', blog_subtitle: 'I write about technology, design, and my personal experiences.',
-                blog1_date: 'October 17, 2025', blog1_title: '10 Tips for Writing Clean Code', blog1_desc: 'Discover practical tips and best practices for improving your code quality and maintainability.',
-                blog2_date: 'September 25, 2025', blog2_title: 'Getting Started with Tailwind CSS', blog2_desc: "A beginner's guide to setting up and using Tailwind CSS in your next project.",
-                read_more: 'Read More',
                 contact_title: 'Get In Touch', contact_subtitle: 'Feel free to reach out if you would like to discuss technology projects, volunteer activities, or potential collaboration opportunities.',
                 form_name_placeholder: 'Your Name', form_email_placeholder: 'Your Email', form_message_placeholder: 'Your Message',
                 form_button: 'Send Message',
-                footer_copyright: '&copy; 2025 Abdul Mudaser Ghafury. All rights reserved.'
+                footer_copyright: '&copy; 2025 Abdul Mudaser Ghafury. All rights reserved.',
+
+                // Expanded Blog Translations - EN
+                "blog_title": "From The Blog",
+                "blog_subtitle": "I write about technology, design, and my personal experiences.",
+                "blog1_date": "October 17, 2025",
+                "blog1_title": "10 Tips for Writing Clean Code",
+                "blog1_desc": "Discover practical tips and best practices for improving your code quality and maintainability.",
+                "blog2_date": "September 25, 2025",
+                "blog2_title": "Getting Started with Tailwind CSS",
+                "blog2_desc": "A beginner's guide to setting up and using Tailwind CSS in your next project.",
+                "read_more": "Read More",
+                "blog_modal_close": "Close",
+                "blog1_title_modal": "10 Tips for Writing Clean Code",
+                "blog1_modal_intro": "Writing clean code is essential for maintainability, collaboration, and debugging. It's not just about making it work; it's about making it understandable for humans, including your future self! Clean code leads to fewer bugs, easier updates, and faster onboarding for new team members. Here are 10 practical tips to improve your code quality.",
+                "blog1_tip1_title": "Use Meaningful Names",
+                "blog1_tip1_desc": "Variable, function, and class names should clearly reveal their intent. Avoid single-letter names (except for simple loop counters like `i`) or ambiguous abbreviations (e.g., `procData` could mean many things). A name like `calculateTotalPriceIncludingTax` is much clearer than `calc()`. Good naming makes your code self-documenting.",
+                "blog1_tip2_title": "Functions Should Do One Thing (SRP)",
+                "blog1_tip2_desc": "Adhere to the Single Responsibility Principle (SRP). Keep your functions small and focused on a single, well-defined task. If a function fetches data, processes it, and then saves it, consider splitting it into three separate functions. This makes them easier to test, debug, reuse, and understand.",
+                "blog1_tip3_title": "Write Comments Wisely",
+                "blog1_tip3_desc": "Good code should be largely self-explanatory through good naming and structure. Use comments primarily to explain *why* you are doing something complex or non-obvious, not *what* the code does (the code itself shows the 'what'). Avoid commented-out code; use version control instead.",
+                "blog1_tip4_title": "Keep it DRY (Don't Repeat Yourself)",
+                "blog1_tip4_desc": "If you find yourself copying and pasting the same block of code in multiple places, refactor it into a reusable function, class, or module. Repetition leads to errors when updates are needed – you might forget to change one of the copies.",
+                "blog1_tip5_title": "Formatting and Indentation Matter",
+                "blog1_tip5_desc": "Consistent formatting (indentation, spacing, line breaks) makes code drastically easier to read and scan. Most languages have established style guides (like PEP 8 for Python). Use automated tools like Prettier (for web dev), Black (Python), or your IDE's built-in formatter to enforce consistency automatically.",
+                "blog1_tip6_title": "Limit Line Length",
+                "blog1_tip6_desc": "Avoid excessively long, horizontal lines of code. They are hard to read without scrolling and often indicate that a single line or function is trying to do too much. Aim for a reasonable limit (e.g., 80-120 characters) and break down complex statements.",
+                "blog1_tip7_title": "Remove Dead Code",
+                "blog1_tip7_desc": "Delete old, commented-out code, unused variables, and unreachable statements. They create clutter, add noise, and can confuse future readers. Trust your version control system (like Git) to keep the history if you ever need to look back.",
+                "blog1_tip8_title": "Use a Consistent Naming Convention",
+                "blog1_tip8_desc": "Whether your team or language standard uses camelCase (`myVariableName`), snake_case (`my_variable_name`), or PascalCase (`MyClassName`), stick with it consistently throughout your project. Mixed conventions make the code harder to read and predict.",
+                "blog1_tip9_title": "Test Your Code",
+                "blog1_tip9_desc": "Writing unit tests, integration tests, and end-to-end tests not only verifies functionality but also encourages cleaner, more modular code design (as testable code is often well-structured code). Tests act as living documentation and provide confidence when refactoring.",
+                "blog1_tip10_title": "Refactor Regularly",
+                "blog1_tip10_desc": "Code is rarely perfect on the first try. As you learn more about the problem domain or as requirements evolve, continuously revisit and improve your existing code. Follow the 'Boy Scout Rule': Always leave the codebase cleaner than you found it.",
+                "blog2_title_modal": "Getting Started with Tailwind CSS",
+                "blog2_modal_intro": "Tailwind CSS is a popular \"utility-first\" CSS framework that has significantly changed how many developers approach styling web interfaces. Instead of providing pre-built components (like Bootstrap's cards or modals), it gives you a vast set of low-level utility classes (like `pt-4`, `flex`, `text-lg`) that you compose directly in your HTML to build completely custom designs without writing much, if any, custom CSS. This very website is built using Tailwind! Here’s a basic guide.",
+                "blog2_step1_title": "1. What is Utility-First?",
+                "blog2_step1_desc": "Imagine you want a blue button with white text and some padding. Instead of writing custom CSS like this:",
+                "blog2_step1_desc2": "With Tailwind, you apply pre-existing utility classes directly in your HTML like this:",
+                "blog2_step1_desc3": "Here, `bg-blue-500` sets the background color, `text-white` sets the text color, `py-2` adds padding on the top and bottom, `px-4` adds padding on the left and right, and `rounded` adds a border-radius. Each class controls one specific CSS property. You build complex styles by combining these small utilities.",
+                "blog2_step2_title": "2. Why Use Tailwind?",
+                "blog2_step2_li1": "Faster Development: You rapidly build and prototype interfaces without constantly switching between HTML and CSS files or inventing CSS class names.",
+                "blog2_step2_li2": "No Naming Conventions Burden: Forget agonizing over the 'perfect' semantic class name like `.article-card__author-image--small`. Utility classes are consistent and functional.",
+                "blog2_step2_li3": "Responsive Design is Built-In: Easily apply styles at different screen sizes using prefixes like `sm:`, `md:`, `lg:`, `xl:` (e.g., `w-full md:w-1/2 lg:w-1/3` makes an element full-width on small screens, half-width on medium screens, and one-third width on large screens).",
+                "blog2_step2_li4": "Highly Customizable & Maintainable: Configure everything (colors, spacing, fonts, breakpoints) in the `tailwind.config.js` file. When you need to update a style (e.g., change the brand color), you often only change it in the config or directly in the HTML, not by hunting through CSS files.",
+                "blog2_step3_title": "3. How to Set It Up (The Easy Way vs. The Real Way)",
+                "blog2_step3_desc": "For quick demos, learning, or simple projects (like this portfolio), the easiest way is using the Tailwind Play CDN. Just add this script tag to your HTML's `<head>`. It compiles the CSS directly in the browser. *Note: This is not recommended for production websites due to performance implications.*",
+                "blog2_step3_desc2": "For any real project, you should install Tailwind via npm (Node Package Manager) as a development dependency. This involves setting up a `tailwind.config.js` file and running a build process that scans your HTML/JS files for used classes and generates a highly optimized, small CSS file containing only the styles you actually use. Follow the detailed official installation guide on [tailwindcss.com](https://tailwindcss.com/docs/installation) for your specific project setup (e.g., Vite, Next.js, or plain HTML)."
             },
             tr: {
                 nav_about: 'Hakkımda', nav_projects: 'Başarılar ve Ödüller', nav_experience: 'Deneyim', nav_my_projects: 'Projelerim', nav_blog: 'Blog', nav_contact: 'İletişim',
@@ -439,14 +570,58 @@
                 my_project3_title: 'Kişisel Portföy Web Sitesi',
                 my_project3_desc: 'Şu anda görüntülediğiniz web sitesi. HTML, Tailwind CSS ve JavaScript ile oluşturulmuş tamamen duyarlı bir kişisel portföy.',
                 view_project: 'Projeyi Görüntüle',
-                blog_title: 'Blogdan Yazılar', blog_subtitle: 'Teknoloji, tasarım ve kişisel deneyimlerim hakkında yazıyorum.',
-                blog1_date: '17 Ekim 2025', blog1_title: 'Temiz Kod Yazmak İçin 10 İpucu', blog1_desc: 'Kod kalitenizi ve sürdürülebilirliğinizi artırmak için pratik ipuçlarını ve en iyi uygulamaları keşfedin.',
-                blog2_date: '25 Eylül 2025', blog2_title: "Tailwind CSS'e Başlarken", blog2_desc: "Bir sonraki projenizde Tailwind CSS'i kurma ve kullanma konusunda başlangıç rehberi.",
-                read_more: 'Devamını Oku',
                 contact_title: 'İletişime Geçin', contact_subtitle: 'Teknoloji projeleri, gönüllülük faaliyetleri veya potansiyel işbirliği fırsatlarını görüşmek isterseniz çekinmeden ulaşın.',
                 form_name_placeholder: 'Adınız', form_email_placeholder: 'E-posta Adresiniz', form_message_placeholder: 'Mesajınız',
                 form_button: 'Mesaj Gönder',
-                footer_copyright: '&copy; 2025 Abdul Mudaser Ghafury. Tüm hakları saklıdır.'
+                footer_copyright: '&copy; 2025 Abdul Mudaser Ghafury. Tüm hakları saklıdır.',
+
+                // Expanded Blog Translations - TR
+                "blog_title": "Blogdan Yazılar",
+                "blog_subtitle": "Teknoloji, tasarım ve kişisel deneyimlerim hakkında yazıyorum.",
+                "blog1_date": "17 Ekim 2025",
+                "blog1_title": "Temiz Kod Yazmak İçin 10 İpucu",
+                "blog1_desc": "Kod kalitenizi ve sürdürülebilirliğinizi artırmak için pratik ipuçlarını ve en iyi uygulamaları keşfedin.",
+                "blog2_date": "25 Eylül 2025",
+                "blog2_title": "Tailwind CSS'e Başlarken",
+                "blog2_desc": "Bir sonraki projenizde Tailwind CSS'i kurma ve kullanma konusunda başlangıç rehberi.",
+                "read_more": "Devamını Oku",
+                "blog_modal_close": "Kapat",
+                "blog1_title_modal": "Temiz Kod Yazmak İçin 10 İpucu",
+                "blog1_modal_intro": "Temiz kod yazmak, sürdürülebilirlik, işbirliği ve hata ayıklama için çok önemlidir. Bu sadece kodun çalışmasını sağlamakla ilgili değil, aynı zamanda insanlar (gelecekteki kendiniz dahil!) için anlaşılabilir olmasıyla da ilgilidir. Temiz kod daha az hataya, daha kolay güncellemelere ve yeni ekip üyelerinin daha hızlı adapte olmasına yol açar. Kod kalitenizi artırmak için 10 pratik ipucu.",
+                "blog1_tip1_title": "Anlamlı İsimler Kullanın",
+                "blog1_tip1_desc": "Değişken, fonksiyon ve sınıf adları amaçlarını açıkça ortaya koymalıdır. Tek harfli adlardan (basit döngü sayaçları `i` gibi istisnalar hariç) veya belirsiz kısaltmalardan (örneğin, `procData` birçok anlama gelebilir) kaçının. `vergilerDahilToplamFiyatiHesapla` gibi bir ad, `hesapla()`'dan çok daha açıktır. İyi adlandırma, kodunuzu kendi kendini belgeleyen hale getirir.",
+                "blog1_tip2_title": "Fonksiyonlar Tek Bir İş Yapmalı (SRP)",
+                "blog1_tip2_desc": "Tek Sorumluluk Prensibine (SRP) uyun. Fonksiyonlarınızı küçük ve tek bir, iyi tanımlanmış göreve odaklanmış tutun. Eğer bir fonksiyon veri alıyor, işliyor ve sonra kaydediyorsa, bunu üç ayrı fonksiyona bölmeyi düşünün. Bu, onların test edilmesini, hata ayıklanmasını, yeniden kullanılmasını ve anlaşılmasını kolaylaştırır.",
+                "blog1_tip3_title": "Yorum Yazın (Akıllıca)",
+                "blog1_tip3_desc": "İyi kod, iyi adlandırma ve yapı sayesinde büyük ölçüde kendi kendini açıklamalıdır. Yorumları öncelikle *neden* karmaşık veya aşikar olmayan bir şey yaptığınızı açıklamak için kullanın, kodun *ne* yaptığını değil (kod zaten 'ne'yi gösterir). Yorum satırına alınmış koddan kaçının; bunun yerine sürüm kontrolü kullanın.",
+                "blog1_tip4_title": "DRY Olun (Kendinizi Tekrar Etmeyin)",
+                "blog1_tip4_desc": "Kendinizi aynı kod bloğunu birden fazla yere kopyalayıp yapıştırırken bulursanız, onu yeniden kullanılabilir bir fonksiyona, sınıfa veya modüle dönüştürün (refactor). Tekrarlama, güncellemeler gerektiğinde hatalara yol açar – kopyalardan birini değiştirmeyi unutabilirsiniz.",
+                "blog1_tip5_title": "Biçimlendirme ve Girintileme Önemlidir",
+                "blog1_tip5_desc": "Tutarlı biçimlendirme (girintileme, boşluk bırakma, satır sonları) kodun okunmasını ve taranmasını büyük ölçüde kolaylaştırır. Çoğu dilin yerleşik stil kılavuzları vardır (Python için PEP 8 gibi). Tutarlılığı otomatik olarak sağlamak için Prettier (web dev için), Black (Python) gibi otomatik araçları veya IDE'nizin yerleşik formatlayıcısını kullanın.",
+                "blog1_tip6_title": "Satır Uzunluğunu Sınırlayın",
+                "blog1_tip6_desc": "Aşırı uzun, yatay kod satırlarından kaçının. Kaydırma yapmadan okunmaları zordur ve genellikle tek bir satırın veya fonksiyonun çok fazla iş yapmaya çalıştığını gösterir. Makul bir sınır hedefleyin (örneğin, 80-120 karakter) ve karmaşık ifadeleri bölün.",
+                "blog1_tip7_title": "Ölü Kodu Kaldırın",
+                "blog1_tip7_desc": "Eski, yorum satırına alınmış kodu, kullanılmayan değişkenleri ve ulaşılamayan ifadeleri silin. Bunlar dağınıklık yaratır, gürültü ekler ve gelecekteki okuyucuların kafasını karıştırabilir. Geriye dönüp bakmanız gerekirse, geçmişi tutması için sürüm kontrol sisteminize (Git gibi) güvenin.",
+                "blog1_tip8_title": "Tutarlı Bir Adlandırma Kuralı Kullanın",
+                "blog1_tip8_desc": "Ekibiniz veya dil standardınız ister camelCase (`benimDegiskenAdim`), ister snake_case (`benim_degisken_adim`), ister PascalCase (`BenimSinifAdim`) kullansın, projeniz boyunca tutarlı bir şekilde buna sadık kalın. Karışık kurallar kodu okumayı ve tahmin etmeyi zorlaştırır.",
+                "blog1_tip9_title": "Kodunuzu Test Edin",
+                "blog1_tip9_desc": "Birim testleri, entegrasyon testleri ve uçtan uca testler yazmak sadece işlevselliği doğrulamakla kalmaz, aynı zamanda daha temiz, daha modüler kod tasarımını teşvik eder (çünkü test edilebilir kod genellikle iyi yapılandırılmış koddur). Testler yaşayan belgeler olarak işlev görür ve yeniden düzenleme yaparken güven sağlar.",
+                "blog1_tip10_title": "Düzenli Olarak Yeniden Düzenleyin (Refactor)",
+                "blog1_tip10_desc": "Kod nadiren ilk denemede mükemmel olur. Problem alanı hakkında daha fazla öğrendikçe veya gereksinimler geliştikçe, mevcut kodunuzu sürekli olarak gözden geçirin ve iyileştirin. 'İzci Kuralı'nı takip edin: Kod tabanını her zaman bulduğunuzdan daha temiz bırakın.",
+                "blog2_title_modal": "Tailwind CSS'e Başlarken",
+                "blog2_modal_intro": "Tailwind CSS, birçok geliştiricinin web arayüzlerini şekillendirme yaklaşımını önemli ölçüde değiştiren popüler bir \"utility-first\" (öncelikli yardımcı program) CSS çatısıdır. Önceden oluşturulmuş bileşenler (Bootstrap'in kartları veya modalları gibi) sağlamak yerine, size çok sayıda düşük seviyeli yardımcı sınıf (örneğin `pt-4`, `flex`, `text-lg`) sunar; bunları doğrudan HTML'nizde birleştirerek, çok az özel CSS yazarak veya hiç yazmadan tamamen özel tasarımlar oluşturursunuz. Bu web sitesi de Tailwind kullanılarak oluşturulmuştur! İşte temel bir rehber.",
+                "blog2_step1_title": "1. Utility-First Nedir?",
+                "blog2_step1_desc": "Diyelim ki beyaz metinli ve biraz dolgulu mavi bir düğme istiyorsunuz. Özel CSS yazmak yerine:",
+                "blog2_step1_desc2": "Tailwind ile, önceden var olan yardımcı sınıfları doğrudan HTML'nize şu şekilde uygularsınız:",
+                "blog2_step1_desc3": "Burada, `bg-blue-500` arka plan rengini, `text-white` metin rengini, `py-2` üst ve alt dolguyu, `px-4` sol ve sağ dolguyu ve `rounded` kenar yuvarlaklığını ayarlar. Her sınıf belirli bir CSS özelliğini kontrol eder. Bu küçük yardımcı programları birleştirerek karmaşık stiller oluşturursunuz.",
+                "blog2_step2_title": "2. Neden Tailwind Kullanmalı?",
+                "blog2_step2_li1": "Daha Hızlı Geliştirme: Sürekli HTML ve CSS dosyaları arasında geçiş yapmadan veya CSS sınıf adları icat etmeden arayüzleri hızla oluşturur ve prototiplersiniz.",
+                "blog2_step2_li2": "Adlandırma Yükü Yok: `.article-card__author-image--small` gibi 'mükemmel' anlamsal sınıf adı üzerinde kafa yormayı unutun. Yardımcı sınıflar tutarlı ve işlevseldir.",
+                "blog2_step2_li3": "Duyarlı Tasarım Dahili: Farklı ekran boyutlarında stilleri `sm:`, `md:`, `lg:`, `xl:` gibi önekler kullanarak kolayca uygulayın (örn. `w-full md:w-1/2 lg:w-1/3` bir öğeyi küçük ekranlarda tam genişlik, orta ekranlarda yarım genişlik ve büyük ekranlarda üçte bir genişlik yapar).",
+                "blog2_step2_li4": "Yüksek Düzeyde Özelleştirilebilir ve Sürdürülebilir: Her şeyi (renkler, boşluklar, yazı tipleri, kesme noktaları) `tailwind.config.js` dosyasında yapılandırın. Bir stili güncellemeniz gerektiğinde (örn. marka rengini değiştirme), genellikle bunu sadece yapılandırmada veya doğrudan HTML'de değiştirirsiniz, CSS dosyalarında arama yaparak değil.",
+                "blog2_step3_title": "3. Nasıl Kurulur (Kolay Yol vs. Gerçek Yol)",
+                "blog2_step3_desc": "Hızlı demolar, öğrenme veya basit projeler için (bu portföy gibi), en kolay yol Tailwind Play CDN'yi kullanmaktır. Sadece bu script etiketini HTML'nizin `<head>` kısmına ekleyin. CSS'yi doğrudan tarayıcıda derler. *Not: Performans etkileri nedeniyle üretim web siteleri için önerilmez.*",
+                "blog2_step3_desc2": "Herhangi bir gerçek proje için, Tailwind'i bir geliştirme bağımlılığı olarak npm (Node Package Manager) aracılığıyla kurmalısınız. Bu, bir `tailwind.config.js` dosyası ayarlamayı ve kullanılan sınıflar için HTML/JS dosyalarınızı tarayan ve yalnızca gerçekten kullandığınız stilleri içeren yüksek düzeyde optimize edilmiş, küçük bir CSS dosyası oluşturan bir derleme işlemi çalıştırmayı içerir. Belirli proje kurulumunuz (örn. Vite, Next.js veya düz HTML) için [tailwindcss.com](https://tailwindcss.com/docs/installation) adresindeki ayrıntılı resmi kurulum kılavuzunu izleyin."
             },
             fa: {
                 nav_about: 'درباره من', nav_projects: 'افتخارات و جوایز', nav_experience: 'تجربه', nav_my_projects: 'پروژه های من', nav_blog: 'وبلاگ', nav_contact: 'تماس',
@@ -480,14 +655,58 @@
                 my_project3_title: 'وب سایت نمونه کار شخصی',
                 my_project3_desc: 'وب سایتی که در حال حاضر مشاهده می کنید. یک نمونه کار شخصی کاملاً واکنش گرا که با HTML، Tailwind CSS و جاوا اسکریپت ساخته شده است.',
                 view_project: 'مشاهده پروژه',
-                blog_title: 'از وبلاگ', blog_subtitle: 'من در مورد فناوری، طراحی و تجربیات شخصی خود می نویسم.',
-                blog1_date: '۱۷ اکتبر ۲۰۲۵', blog1_title: '۱۰ نکته برای نوشتن کد تمیز', blog1_desc: 'نکات عملی و بهترین شیوه ها را برای بهبود کیفیت و قابلیت نگهداری کد خود کشف کنید.',
-                blog2_date: '۲۵ سپتامبر ۲۰۲۵', blog2_title: 'شروع کار با Tailwind CSS', blog2_desc: 'راهنمای مبتدیان برای راه اندازی و استفاده از Tailwind CSS در پروژه بعدی شما.',
-                read_more: 'بیشتر بخوانید',
                 contact_title: 'در تماس باشید', contact_subtitle: 'اگر مایل به بحث در مورد پروژه های فناوری، فعالیت های داوطلبانه یا فرصت های همکاری بالقوه هستید، با خیال راحت تماس بگیرید.',
                 form_name_placeholder: 'نام شما', form_email_placeholder: 'ایمیل شما', form_message_placeholder: 'پیام شما',
                 form_button: 'ارسال پیام',
-                footer_copyright: '&copy; ۲۰۲۵ عبدالمدثر غفوری. تمام حقوق محفوظ است.'
+                footer_copyright: '&copy; ۲۰۲۵ عبدالمدثر غفوری. تمام حقوق محفوظ است.',
+
+                // Expanded Blog Translations - FA
+                "blog_title": "از وبلاگ",
+                "blog_subtitle": "من در مورد فناوری، طراحی و تجربیات شخصی خود می نویسم.",
+                "blog1_date": "۱۷ اکتبر ۲۰۲۵",
+                "blog1_title": "۱۰ نکته برای نوشتن کد تمیز",
+                "blog1_desc": "نکات عملی و بهترین شیوه ها را برای بهبود کیفیت و قابلیت نگهداری کد خود کشف کنید.",
+                "blog2_date": "۲۵ سپتامبر ۲۰۲۵",
+                "blog2_title": "شروع کار با Tailwind CSS",
+                "blog2_desc": "راهنمای مبتدیان برای راه اندازی و استفاده از Tailwind CSS در پروژه بعدی شما.",
+                "read_more": "بیشتر بخوانید",
+                "blog_modal_close": "بستن",
+                "blog1_title_modal": "۱۰ نکته برای نوشتن کد تمیز",
+                "blog1_modal_intro": "نوشتن کد تمیز برای نگهداری، همکاری و اشکال زدایی ضروری است. این فقط در مورد کارکردن آن نیست؛ بلکه در مورد قابل فهم کردن آن برای انسان ها (از جمله خود آینده شما!) است. کد تمیز منجر به اشکالات کمتر، به روز رسانی آسان تر و ورود سریعتر اعضای جدید تیم می شود. در اینجا ۱۰ نکته عملی برای بهبود کیفیت کد شما آورده شده است.",
+                "blog1_tip1_title": "از نام های معنی دار استفاده کنید",
+                "blog1_tip1_desc": "نام متغیرها، توابع و کلاس ها باید به وضوح هدف خود را آشکار کنند. از نام های تک حرفی (به جز شمارنده های حلقه ساده مانند `i`) یا اختصارات مبهم (مثلاً `procData` می تواند معانی زیادی داشته باشد) خودداری کنید. نامی مانند `calculateTotalPriceIncludingTax` بسیار واضح تر از `calc()` است. نام گذاری خوب باعث می شود کد شما خود-مستند شود.",
+                "blog1_tip2_title": "توابع باید یک کار انجام دهند (SRP)",
+                "blog1_tip2_desc": "به اصل مسئولیت واحد (SRP) پایبند باشید. توابع خود را کوچک و متمرکز بر یک کار واحد و به خوبی تعریف شده نگه دارید. اگر یک تابع داده ها را واکشی می کند، پردازش می کند و سپس ذخیره می کند، آن را به سه تابع جداگانه تقسیم کنید. این کار تست، اشکال زدایی، استفاده مجدد و درک آنها را آسان تر می کند.",
+                "blog1_tip3_title": "نظر بنویسید (هوشمندانه)",
+                "blog1_tip3_desc": "کد خوب باید از طریق نامگذاری و ساختار خوب تا حد زیادی خود-توضیحی باشد. از نظرات عمدتاً برای توضیح *چرا* کار پیچیده یا غیر آشکاری را انجام می دهید استفاده کنید، نه *چه* کاری کد انجام می دهد (خود کد 'چه' را نشان می دهد). از کدهای نظر شده خودداری کنید؛ به جای آن از کنترل نسخه استفاده کنید.",
+                "blog1_tip4_title": "DRY باشید (خودتان را تکرار نکنید)",
+                "blog1_tip4_desc": "اگر متوجه شدید که بلوک کد یکسانی را در چندین مکان کپی و پیست می کنید، آن را به یک تابع، کلاس یا ماژول قابل استفاده مجدد بازسازی کنید (refactor). تکرار منجر به خطا در هنگام نیاز به به روز رسانی می شود – ممکن است فراموش کنید یکی از کپی ها را تغییر دهید.",
+                "blog1_tip5_title": "قالب بندی و تورفتگی مهم است",
+                "blog1_tip5_desc": "قالب بندی مداوم (تورفتگی، فاصله گذاری، شکست خط) خواندن و اسکن کد را به طرز چشمگیری آسان تر می کند. اکثر زبان ها راهنماهای سبک مشخصی دارند (مانند PEP 8 برای پایتون). از ابزارهای خودکار مانند Prettier (برای توسعه وب)، Black (پایتون) یا فرمتر داخلی IDE خود برای اعمال خودکار سازگاری استفاده کنید.",
+                "blog1_tip6_title": "طول خط را محدود کنید",
+                "blog1_tip6_desc": "از خطوط کد بیش از حد طولانی و افقی خودداری کنید. خواندن آنها بدون پیمایش دشوار است و اغلب نشان می دهد که یک خط یا تابع در تلاش است کارهای زیادی انجام دهد. یک حد معقول (به عنوان مثال، 80-120 کاراکتر) را هدف قرار دهید و عبارات پیچیده را تجزیه کنید.",
+                "blog1_tip7_title": "کد مرده را حذف کنید",
+                "blog1_tip7_desc": "کدهای قدیمی، نظرات خارج شده، متغیرهای استفاده نشده و عبارات غیرقابل دسترس را حذف کنید. آنها شلوغی ایجاد می کنند، نویز اضافه می کنند و می توانند خوانندگان آینده را گیج کنند. به سیستم کنترل نسخه خود (مانند Git) اعتماد کنید تا تاریخچه را نگه دارد اگر زمانی نیاز به نگاه کردن به عقب داشتید.",
+                "blog1_tip8_title": "از یک قرارداد نامگذاری سازگار استفاده کنید",
+                "blog1_tip8_desc": "چه تیم یا استاندارد زبان شما از camelCase (`myVariableName`)، snake_case (`my_variable_name`) یا PascalCase (`MyClassName`) استفاده کند، در سراسر پروژه خود به طور مداوم به آن پایبند باشید. قراردادهای ترکیبی خواندن و پیش بینی کد را دشوارتر می کند.",
+                "blog1_tip9_title": "کد خود را تست کنید",
+                "blog1_tip9_desc": "نوشتن تست های واحد، تست های یکپارچه سازی و تست های سرتاسری نه تنها عملکرد را تأیید می کند، بلکه طراحی کد تمیزتر و ماژولارتر را نیز تشویق می کند (زیرا کد قابل تست اغلب کد خوب ساختار یافته است). تست ها به عنوان مستندات زنده عمل می کنند و هنگام بازسازی اطمینان ایجاد می کنند.",
+                "blog1_tip10_title": "به طور منظم بازسازی کنید (Refactor)",
+                "blog1_tip10_desc": "کد به ندرت در اولین تلاش کامل است. همانطور که در مورد دامنه مشکل بیشتر می آموزید یا نیازها تکامل می یابد، به طور مداوم کد موجود خود را بازبینی و بهبود بخشید. 'قانون پیشاهنگی پسر' را دنبال کنید: همیشه پایگاه کد را تمیزتر از آنچه پیدا کردید رها کنید.",
+                "blog2_title_modal": "شروع کار با Tailwind CSS",
+                "blog2_modal_intro": "Tailwind CSS یک چارچوب CSS محبوب \"utility-first\" (ابزار-محور) است که نحوه برخورد بسیاری از توسعه دهندگان با استایل دهی رابط های وب را به طور قابل توجهی تغییر داده است. به جای ارائه اجزای از پیش ساخته شده (مانند کارت ها یا مودال های Bootstrap)، مجموعه وسیعی از کلاس های ابزار سطح پایین (مانند `pt-4`، `flex`، `text-lg`) را در اختیار شما قرار می دهد که مستقیماً در HTML خود ترکیب می کنید تا طرح های کاملاً سفارشی را بدون نوشتن CSS سفارشی زیاد یا اصلاً ایجاد کنید. همین وب سایت با استفاده از Tailwind ساخته شده است! در اینجا یک راهنمای اساسی آورده شده است.",
+                "blog2_step1_title": "۱. Utility-First چیست؟",
+                "blog2_step1_desc": "تصور کنید یک دکمه آبی با متن سفید و مقداری پدینگ می خواهید. به جای نوشتن CSS سفارشی مانند این:",
+                "blog2_step1_desc2": "با Tailwind، کلاس های ابزار از پیش موجود را مستقیماً در HTML خود مانند این اعمال می کنید:",
+                "blog2_step1_desc3": "در اینجا، `bg-blue-500` رنگ پس زمینه را تنظیم می کند، `text-white` رنگ متن را، `py-2` پدینگ در بالا و پایین را اضافه می کند، `px-4` پدینگ در چپ و راست را اضافه می کند و `rounded` شعاع مرز را اضافه می کند. هر کلاس یک ویژگی CSS خاص را کنترل می کند. شما با ترکیب این ابزارهای کوچک، سبک های پیچیده ای می سازید.",
+                "blog2_step2_title": "۲. چرا از Tailwind استفاده کنیم؟",
+                "blog2_step2_li1": "توسعه سریعتر: شما به سرعت رابط ها را بدون جابجایی مداوم بین فایل های HTML و CSS یا اختراع نام کلاس های CSS، می سازید و نمونه سازی می کنید.",
+                "blog2_step2_li2": "بدون بار قرارداد نامگذاری: دیگر نگران نام کلاس معنایی 'کامل' مانند `.article-card__author-image--small` نباشید. کلاس های ابزار سازگار و کاربردی هستند.",
+                "blog2_step2_li3": "طراحی واکنش گرا داخلی است: به راحتی سبک ها را در اندازه های مختلف صفحه با استفاده از پیشوندهایی مانند `sm:`، `md:`، `lg:`، `xl:` اعمال کنید (مثلاً `w-full md:w-1/2 lg:w-1/3` یک عنصر را در صفحه های کوچک تمام عرض، در صفحه های متوسط نیم عرض و در صفحه های بزرگ یک سوم عرض می کند).",
+                "blog2_step2_li4": "بسیار قابل تنظیم و قابل نگهداری: همه چیز (رنگ ها، فاصله گذاری ها، فونت ها، نقاط شکست) را در فایل `tailwind.config.js` پیکربندی کنید. هنگامی که نیاز به به روز رسانی یک سبک دارید (مثلاً تغییر رنگ برند)، اغلب فقط آن را در پیکربندی یا مستقیماً در HTML تغییر می دهید، نه با جستجو در فایل های CSS.",
+                "blog2_step3_title": "۳. چگونه آن را راه اندازی کنیم (راه آسان در مقابل راه واقعی)",
+                "blog2_step3_desc": "برای دموهای سریع، یادگیری یا پروژه های ساده (مانند این پورتفولیو)، ساده ترین راه استفاده از Tailwind Play CDN است. فقط این تگ اسکریپت را به `<head>` HTML خود اضافه کنید. این CSS را مستقیماً در مرورگر کامپایل می کند. *توجه: این به دلیل پیامدهای عملکردی برای وب سایت های تولیدی توصیه نمی شود.*",
+                "blog2_step3_desc2": "برای هر پروژه واقعی، باید Tailwind را از طریق npm (Node Package Manager) به عنوان یک وابستگی توسعه نصب کنید. این شامل راه اندازی یک فایل `tailwind.config.js` و اجرای یک فرآیند ساخت است که فایل های HTML/JS شما را برای کلاس های استفاده شده اسکن می کند و یک فایل CSS بسیار بهینه شده و کوچک حاوی تنها سبک هایی که واقعاً استفاده می کنید، تولید می کند. راهنمای نصب رسمی دقیق را در [tailwindcss.com](https://tailwindcss.com/docs/installation) برای راه اندازی پروژه خاص خود (به عنوان مثال، Vite، Next.js یا HTML ساده) دنبال کنید."
             }
         };
 
@@ -528,7 +747,10 @@
             });
 
             // Re-initialize feather icons after text changes
-             setTimeout(() => feather.replace(), 0);
+             // Check if feather is defined before calling replace
+             if (typeof feather !== 'undefined') {
+                setTimeout(() => feather.replace(), 0);
+             }
         };
         
         languageButtons.forEach(button => {
@@ -541,8 +763,11 @@
         // Set initial language
         setLanguage('en');
 
-        // Feather Icons
-        feather.replace();
+        // Feather Icons - Initial call after the library is loaded
+        // Check if feather is defined before calling replace
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
 
         // Mobile Menu
         const hamburger = document.getElementById('hamburger');
@@ -572,18 +797,67 @@
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#hero') {
-                   window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
+             anchor.addEventListener('click', function (e) {
+                 e.preventDefault();
+                 const targetId = this.getAttribute('href');
+                 if (targetId === '#hero') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                 } else {
+                     const targetElement = document.querySelector(targetId);
+                     if(targetElement) {
+                         targetElement.scrollIntoView({ behavior: 'smooth' });
+                     }
+                 }
+             });
+         });
+
+        // Modal JavaScript
+        const blogModal1 = document.getElementById('blog-modal-1');
+        const openBlog1 = document.getElementById('open-blog-1');
+        const closeBlog1 = document.getElementById('close-blog-1');
+        const closeBlog1Footer = document.getElementById('close-blog-1-footer');
+
+        const blogModal2 = document.getElementById('blog-modal-2');
+        const openBlog2 = document.getElementById('open-blog-2');
+        const closeBlog2 = document.getElementById('close-blog-2');
+        const closeBlog2Footer = document.getElementById('close-blog-2-footer');
+
+        const openModal = (modal) => {
+            if (!modal) return; 
+            modal.classList.remove('pointer-events-none');
+            modal.classList.add('opacity-100');
+            document.body.style.overflow = 'hidden';
+            // Check if feather is defined before calling replace
+            if (typeof feather !== 'undefined') {
+                 feather.replace(); 
+            }
+        };
+
+        const closeModal = (modal) => {
+             if (!modal) return; 
+            modal.classList.add('pointer-events-none');
+            modal.classList.remove('opacity-100');
+            document.body.style.overflow = '';
+        };
+
+        // Modal 1 Listeners
+        if (openBlog1) openBlog1.addEventListener('click', () => openModal(blogModal1));
+        if (closeBlog1) closeBlog1.addEventListener('click', () => closeModal(blogModal1));
+        if (closeBlog1Footer) closeBlog1Footer.addEventListener('click', () => closeModal(blogModal1));
+        if (blogModal1) blogModal1.addEventListener('click', (e) => {
+            if (e.target === blogModal1) {
+                closeModal(blogModal1);
+            }
+        });
+
+        // Modal 2 Listeners
+         if (openBlog2) openBlog2.addEventListener('click', () => openModal(blogModal2));
+         if (closeBlog2) closeBlog2.addEventListener('click', () => closeModal(blogModal2));
+         if (closeBlog2Footer) closeBlog2Footer.addEventListener('click', () => closeModal(blogModal2));
+         if (blogModal2) blogModal2.addEventListener('click', (e) => {
+            if (e.target === blogModal2) {
+                closeModal(blogModal2);
+            }
         });
         
     </script>
